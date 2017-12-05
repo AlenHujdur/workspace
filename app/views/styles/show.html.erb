@@ -1,0 +1,54 @@
+<%= render 'shared/page_title', title: "Recipes for: " + @style.name + " food" %>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Recipes", recipes_path, {:style=>'font-size:20px'} %>
+  </li>
+  <li>
+    <%= link_to "Food Wizards", chefs_path, {:style=>'font-size:20px'} %>
+  </li>
+</ul>
+    <% if logged_in? and (@recipe.chef == current_user || current_user.admin?) %>
+    <%= link_to "[Delete Style]", @style, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+<%= will_paginate @recipes %>
+
+<% @recipes.each do |recipe| %>
+  <div class="row">
+
+   <div class="col-md-1" style="width:16%">
+     
+  </div>
+
+  <div class="col-lg-7 well" style="min-height:240px;width: 600px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h2 style="margin-bottom:0;padding-bottom:0;"><%= link_to recipe.name, recipe_path(recipe), {:style=>'font-family: Garamond;font-size:30px;text-align:left;'} %></h2>
+    <p style="font-family: Garamond; font-size:20px; padding-top:0;"><%= recipe.summary %></p>
+    <p style="font-size:16px; font-family:Garamond;padding:0;margin:0;">Styles: <%= render recipe.styles%></p>
+    <p style="font-size:16px; font-family:Garamond;padding:0;margin:0;">Ingredients: <%= render recipe.ingredients%></p>
+    <p style="font-size:16px; font-family:Garamond;padding:0;margin:0;">Allergens: <%= render recipe.allergens %></p>
+    <p style="text-align:right;">
+      <span class="quiet"><small> created: <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+      <span class="quiet"><small> updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small></span>
+    </p>
+    <div class="pull-right">
+      <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; <%= recipe.thumbs_up_total %>
+      <% end %> &nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; <%= recipe.thumbs_down_total %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= image_tag(recipe.picture.url, size: '300x240', class: 'gravatar') if recipe.picture? %>
+    <section class="chef_info center">
+      <!--<h2 style="text-align:left; margin-bottom:5px;">< %=link_to ("Crafted by: " + recipe.chef.chefname), chef_path(recipe.chef) %></h2>-->
+      <!--<h4 style="text-align:left">< %= mail_to recipe.chef.email, "Question about this recipe? Click here" %></h4>-->
+    </section>
+  </div>
+
+ </div>
+
+<% end %>
+
+<%= will_paginate @recipes %>

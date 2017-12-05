@@ -1,0 +1,32 @@
+<%= render 'shared/page_title', title: "Recipe Wizards" %>
+
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Recipes", recipes_path, {:style=>'font-size:20px'} %>
+  </li>
+  <li class="active">
+    <%= link_to "Wizards", chefs_path, {:style=>'font-size:20px'} %>
+  </li>
+</ul>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= will_paginate %>    
+  </div>
+</div>
+
+<% @chefs.each do |chef| %>
+ <div class="row">
+   <div class="col-md-4 col-md-offset-4 center">
+    <% if chef.picture.blank? %>
+    <%= link_to gravatar_for(chef, size: 300), chef_path(chef) %>
+    <% else %>
+    <%= link_to picture_for(chef, size: 300), chef_path(chef) %>
+    <% end %>
+    <p>
+      <h3 id="chefname_h3"><%= chef.chefname %></h3>
+    </p>
+   </div>
+ </div>
+
+<% end %>

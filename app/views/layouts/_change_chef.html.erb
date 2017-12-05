@@ -1,0 +1,42 @@
+<%= render 'shared/errors', obj: @chef %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @chef do |f| %>
+      <%= f.label :username %> (Admin username will appear in front page and recipes creator in their all recipes).
+      <%= f.text_field :chefname %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :admin %>
+      <%= f.check_box :admin %>
+
+      Change your picture?
+      <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      <!--< % if params[:picture] != nil  %>-->
+      <!--< %= @changed = true %>-->
+      <!--< % end %>-->
+      </span>
+      <strong>Max picture size 5 megabytes</strong>
+
+      <h3>Add summary / bio </h3>
+      <h3>Add welcome picture </h3>
+
+      <%= f.submit(@chef.new_record? ? 'Register' : 'Save Changes', class: "btn btn-success") %>
+    <% end %>
+  </div>
+</div>
+</span>
+<script type="text/javascript">
+  $('#recipe_picture').bind('change', function(){
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.')
+    }
+  });
+</script>

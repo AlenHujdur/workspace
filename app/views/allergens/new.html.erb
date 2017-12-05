@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title: "Create a new Allergen" %>
+
+<%= render 'shared/errors', obj: @allergen %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @allergen do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+   
+    <%= f.submit 'Write the name of the allergen that will "NOT BE in The RECIPE" then click or tap to save', class: "btn btn-success" %>
+  <% end %>
+ </div>
+</div>

@@ -1,0 +1,24 @@
+<header style="max-height:0px; margin:0;padding:0;">Hi</header>
+<div class="row">
+<div class="col-sm-1 left well">
+ </div>
+ <div class="col-md-10 center well">
+ <h2>A Taste of </h2>
+  <%# <%=if logged_in?%>  %>
+ <%# <h2><%=@chef.chefname%></h2> %>
+ <%# <%else%> %>
+ <h2>Please write your username.</h2> 
+ <%# <%end%> %>
+ <h2>iTopRecipes!</h2>
+ <% @pages.each do |page| %>
+<div style="text-align:center"><%=image_tag(page.welcomepic.url) if page.welcomepic? %></div>
+<!-- , size: '840x680',class: 'gravatar' -->
+<%end%>
+<div id="enter">
+<%=link_to 'Enter',url_for({:controller => 'pages', :action => 'index'}) %>
+</div>
+</div>
+<div class="col-sm-1 right well">
+ </div>
+
+</div>

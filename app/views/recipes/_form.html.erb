@@ -1,0 +1,64 @@
+<%= render 'shared/errors', obj: @recipe %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+   <%= form_for(@recipe, html: { multipart: true }) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Write Recipe name" %>
+
+    <%= f.label :summary %>
+    <%= f.text_area :summary, rows: '2', placeholder: "Short Dish Description\nPreparation Time - Drink Suggestion" %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "
+ For better recipe layout follow those guidelines, READ the tips then start typing your recipe.
+     1) Write some tips to make this one a top of the line recipe 
+     2) Ingredients: (create a list from most to the least important items)
+     3) Preparation tips: 
+     4) Variables, if any:
+     5) Select a style or ingredient, or create new style or ingredient in menu bar
+     6) Upload your masterpiece picture using the Choose File button, max picture size 300x400 px
+ Dont worry about making mistakes you can edit the recipes anytime.", rows: 10 %>
+    
+    <strong>Styles</strong>
+    <%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cb| %>
+     <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+    <br><br>
+    <strong>Ingredients</strong>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cbi| %>
+     <% cbi.label(class: "checkbox-inline input_checkbox") {cbi.check_box(class: "checkbox") + cbi.text} %>
+    <% end %>
+    <br><br>
+    <strong>Allergens</strong>
+    <%= f.collection_check_boxes :allergen_ids, Allergen.all, :id, :name do |cbi| %>
+     <% cbi.label(class: "checkbox-inline input_checkbox") {cbi.check_box(class: "checkbox") + cbi.text} %>
+    <% end %>
+    <br><br>
+     Upload food picture
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    Upload drink picture
+    <span class="picture">
+      <%= f.file_field :drinkpic, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <bold>Max picture size 5 megabytes</bold>
+    <%= f.submit(@recipe.new_record? ? ' Tap or click here to save your Masterpiece' : 'Tap or click here to save your Masterpiece', class: "btn btn-success") %>
+   <% end %>
+ </div>
+</div>
+
+<script type="text/javascript">
+  $('#recipe_picture').bind('change', function(){
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.')
+    }
+  });
+</script>
+
+
+
+
+
