@@ -1,24 +1,89 @@
-<header style="max-height:0px; margin:0;padding:0;">Hi</header>
-<div class="row">
-<div class="col-sm-1 left well">
- </div>
- <div class="col-md-10 center well">
- <h2>A Taste of </h2>
-  <%# <%=if logged_in?%>  %>
- <%# <h2><%=@chef.chefname%></h2> %>
- <%# <%else%> %>
- <h2>Please write your username.</h2> 
- <%# <%end%> %>
- <h2>iTopRecipes!</h2>
- <% @pages.each do |page| %>
-<div style="text-align:center"><%=image_tag(page.welcomepic.url) if page.welcomepic? %></div>
-<!-- , size: '840x680',class: 'gravatar' -->
-<%end%>
-<div id="enter">
-<%=link_to 'Enter',url_for({:controller => 'pages', :action => 'index'}) %>
-</div>
-</div>
-<div class="col-sm-1 right well">
- </div>
+<!DOCTYPE html>
+<html>
 
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="landing_page">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="#">Welcome Username</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" role="presentation"><a href="#">Your latest recipes</a></li>
+                    <li role="presentation"><a href="#">Ask question</a></li>
+                    <li role="presentation"><a href="#">Visit forum</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-7 phone-preview">
+                    <div class="iphone-mockup"><img src="iphone.svg" class="device">
+                        <div class="screen">
+                            <h2 class="mobile_msg">Full mobile version soon!</h2></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-pull-3 get-it">
+                    <h1>Wellcome to iToprecipies</h1>
+                    <p id="feel_free">Feel free to change background picture.</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="testimonials">
+        <h2 class="text-center">We love to share our recipes and ideas. Feel free to join us!</h2>
+        <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer>Bruno Paris, CEO atiToprecipe</footer>
+        </blockquote>
+    </section>
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Fantastic Features</h2>
+                    <p>Coming up soon mobile version of iTopRecipes app!Be first to test it out..</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row icon-features">
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-cloud"></i>
+                            <p>Cloud-ready </p>
+                        </div>
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-piggy-bank"></i>
+                            <p>Saves You Money</p>
+                        </div>
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-fire"></i>
+                            <p>Fire Proof</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>iToprecipes © 2017</h5></div>
+                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

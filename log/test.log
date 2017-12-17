@@ -1891,3 +1891,236 @@ ChefTest: test_email_length_should_be_within_bounds
 ---------------------------------------------------
   [1m[35mChef Exists (0.1ms)[0m  SELECT  1 AS one FROM "chefs" WHERE LOWER("chefs"."email") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com') LIMIT 1
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (143.5ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_id" integer, "resource_type" varchar, "author_id" integer, "author_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (28.6ms)[0m  [1mCREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.7ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+
+  [1m[36m (29.8ms)[0m  [1mCREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (32.1ms)[0m  CREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")
+  [1m[36m (27.5ms)[0m  [1mCREATE TABLE "allergens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar) [0m
+  [1m[35m (22.4ms)[0m  CREATE TABLE "chefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "chefname" varchar, "email" varchar, "created_at" datetime, "updated_at" datetime, "password_digest" varchar, "admin" boolean DEFAULT 'f', "picture" varchar) 
+  [1m[36m (25.1ms)[0m  [1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar) [0m
+  [1m[35m (25.6ms)[0m  CREATE TABLE "likes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "like" boolean, "chef_id" integer, "recipe_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (25.6ms)[0m  [1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "welcomepic" varchar, "chef_id" integer DEFAULT 0) [0m
+  [1m[35m (24.2ms)[0m  CREATE TABLE "recipe_allergens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "allergen_id" integer, "recipe_id" integer) 
+  [1m[36m (103.9ms)[0m  [1mCREATE TABLE "recipe_ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer, "recipe_id" integer) [0m
+  [1m[35m (38.6ms)[0m  CREATE TABLE "recipe_styles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "style_id" integer, "recipe_id" integer) 
+  [1m[36m (79.2ms)[0m  [1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "summary" text, "description" text, "created_at" datetime, "updated_at" datetime, "chef_id" integer, "picture" varchar, "drinkpic" varchar) [0m
+  [1m[35m (127.7ms)[0m  CREATE TABLE "styles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar) 
+  [1m[36m (33.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (25.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (23.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (54.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (111.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (65.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171202194251')
+  [1m[36m (32.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171008203417')[0m
+  [1m[35m (24.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171009003647')
+  [1m[36m (24.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171012110940')[0m
+  [1m[35m (24.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171016110228')
+  [1m[36m (47.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171016112610')[0m
+  [1m[35m (32.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171016141913')
+  [1m[36m (36.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171017201859')[0m
+  [1m[35m (37.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171017202316')
+  [1m[36m (38.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171017203301')[0m
+  [1m[35m (32.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171017203712')
+  [1m[36m (23.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171103135426')[0m
+  [1m[35m (26.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171116133516')
+  [1m[36m (39.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171116234847')[0m
+  [1m[35m (28.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171119140632')
+  [1m[36m (23.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171119143116')[0m
+  [1m[35m (32.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171120153145')
+  [1m[36m (35.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20171120153426')[0m
+  [1m[35m (36.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171202194209')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (23.0ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (7.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.5ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (10.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.3ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (8.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.5ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (6.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.1ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (8.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (6.0ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (13.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.8ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (12.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.4ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (46.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (4.6ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (13.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.5ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (12.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (27.0ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (7.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (40.4ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (14.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (4.5ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (12.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (20.3ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:42', '2017-12-08 18:10:42', 298486374)
+  [1m[36m (13.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.4ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (12.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.4ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (1.3ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (15.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (22.6ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (8.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.4ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.1ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (8.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (3.3ms)[0m  [1mDELETE FROM "likes"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "likes" ("like", "chef_id", "recipe_id", "created_at", "updated_at", "id") VALUES ('f', 1, 1, '2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2017-12-08 18:10:43', '2017-12-08 18:10:43', 298486374)
+  [1m[36m (7.8ms)[0m  [1mrollback transaction[0m

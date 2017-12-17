@@ -20,7 +20,7 @@
 
   </div>
 
-  <div class="col-lg-7 well" style="min-height:240px;width: 600px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <div class="col-lg-7 well" >
     <h2 style="margin-bottom:0;padding-bottom:0;"><%= link_to recipe.name, recipe_path(recipe), {:style=>'font-family: Garamond;font-size:30px;text-align:left;'} %></h2>
     <p style="font-family: Garamond; font-size:20px;"><%= recipe.summary %></p>
     <p style="font-size:16px; font-family:Garamond;padding:0;margin:0;">Styles: <%= render recipe.styles %></p>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+// In index2.html
+<script type="text/javascript">
+if (window.innerWidth < 960) {
+    window.location = "navigation_mobile.html.erb";
+}
+</script>
+<header class="navbar navbar-fixed-top navbar-default" id="main_header" >
+  <div class="container">
+   
+    <ul class="nav_item">
+     <li class="nav-item">
+     <%= link_to 'Recipes', recipes_path, class: "btn btn-success" %>
+     </li>
+     </ul>
+    <ul class="nav_ul_item">
+
+      <li class="dropdown">
+       <%= link_to "#", class: "btn btn-default btn-primary dropdown-toggle", "data-toggle" => "dropdown" do %>
+         Styles  <b class="caret"></b>
+       <% end %>
+       <ul class='dropdown-menu'>
+         <% Style.all.each do |style| %>
+           <li><%= link_to style.name, style_path(style) %></li>
+         <% end %>
+         <% if logged_in? %>
+           <li class='divider'></li> 
+            <li>
+             <%= link_to(new_style_path) do %>
+               New Style
+             <% end %>            
+            </li>
+           <% end %>
+         </ul>
+      </li>
+    </ul>
+    <ul class="nav_ul_item">
+      <li class="dropdown">
+       <%= link_to "#", class: "btn btn-default btn-primary dropdown-toggle", "data-toggle" => "dropdown" do %>
+        Ingredients <b class="caret"></b>
+         <% end %>
+         <ul class='dropdown-menu'>
+           <% Ingredient.all.each do |ingredient| %>
+             <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+           <% end %>
+           <% if logged_in? %>
+            <li class='divider'></li> 
+             <li>
+              <%= link_to(new_ingredient_path) do %>
+                New Ingredient
+              <% end %>            
+             </li>
+            <% end %>
+          </ul>
+       </li>
+     </ul>
+
+     <ul class="nav_ul_item">
+     <li class="dropdown">
+       <%= link_to "#", class: "btn btn-default btn-primary dropdown-toggle", "data-toggle" => "dropdown" do %>
+         Allergens  <b class="caret"></b>
+       <% end %>
+       <ul class='dropdown-menu'>
+         <% Allergen.all.each do |allergen| %>
+           <li><%= link_to allergen.name, allergen_path(allergen) %></li>
+         <% end %>
+         <% if logged_in? %>
+           <li class='divider'></li> 
+            <li>
+             <%= link_to(new_allergen_path) do %>
+               New Allergen
+             <% end %>            
+            </li>
+           <% end %>
+         </ul>
+      </li>
+    </ul>
+     
+     
+     
+     
+     
+     
+     
+    <% if logged_in? %> 
+     <div class="nav_item">
+      <%= link_to "New Recipe", new_recipe_path, class: "btn btn-default btn-success" %>
+     </div>
+     <ul class="nav_item">
+      <li class="dropdown">
+       <%= link_to "#", class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
+        <%= current_user.chefname %> <b class="caret"></b>
+       <% end %>
+         <ul class='dropdown-menu'>
+           <li><%= link_to "View Profile", chef_path(current_user) %></li>
+           <li><%= link_to "Edit Profile", edit_chef_path(current_user) %></li>
+           <li class="divider"></li>
+           <li><%= link_to "Logout", logout_path %></li>
+         </ul>
+      </li>
+    </ul>
+   <% else %>
+     <div class="nav_item">
+       <%= link_to "Log in", login_path, class: "btn btn-default btn-success" %>
+     </div>
+    <% end %>
+    
+  </div>
+  </div>
+</header>
+</html>
