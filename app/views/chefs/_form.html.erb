@@ -14,7 +14,8 @@
 
       <%= f.label :admin %>
       <%= f.check_box :admin, :style => "width:2.2%; float:left" %>
-      
+      <%= f.label :bio %>
+      <%= f.text_area :bio %>
       <%= f.submit(@chef.new_record? ? 'Register' : 'Edit profile', class: "btn btn-success") %>
     <% end %>
   </div>

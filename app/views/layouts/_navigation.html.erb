@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<%# <!DOCTYPE html>
 <html>
-// In index2.html
+// In index2.html %>
 <%# <script type="text/javascript">
 if (window.innerWidth < 960) {
     window.location = "404.html";
 } %>
-</script>
+<%# </script> %>
 <header class="navbar navbar-fixed-top navbar-default" id="main_header" >
   <div class="container">
    
@@ -76,13 +76,7 @@ if (window.innerWidth < 960) {
          </ul>
       </li>
     </ul>
-     
-     
-     
-     
-     
-     
-     
+      
     <% if logged_in? %> 
      <div class="nav_item">
       <%= link_to "New Recipe", new_recipe_path, class: "btn btn-default btn-success" %>
@@ -95,7 +89,10 @@ if (window.innerWidth < 960) {
          <ul class='dropdown-menu'>
            <li><%= link_to "View Profile", chef_path(current_user) %></li>
            <li><%= link_to "Edit Profile", edit_chef_path(current_user) %></li>
-           <li class="divider"></li>
+           <% if current_user.admin? %>
+	   <li><%= link_to "New Welcome page", controler: "pages", action: "new" %></li>
+	    <%end%>
+	   <li class="divider"></li>
            <li><%= link_to "Logout", logout_path %></li>
          </ul>
       </li>
@@ -109,4 +106,4 @@ if (window.innerWidth < 960) {
   </div>
   </div>
 </header>
-</html>
+<%# </html> %>

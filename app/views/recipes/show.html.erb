@@ -1,11 +1,8 @@
-<%= render 'shared/page_title', title: @recipe.name %>
-
+<%# <%# <%= render 'shared/page_title', title: @recipe.name %>
+<br><br><br><br><br><br>
 <div class="row">
-
-   <div class="col-md-1">
-
-  </div>
-   <div class="col-lg-7 well">
+   <div class="col-sm-1"></div>
+   <div class="col-lg-5 well">
     <% if logged_in? and (@recipe.chef == current_user || current_user.admin?) %>
      <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
     <% end %>
@@ -29,22 +26,63 @@
       
     </div>
     </div>
-    <div class="col-md-4" >
-        <%=image_tag(@recipe.picture.url, size: '400x300', class: 'gravatar', alt: 'No image') if @recipe.picture? %><hr style="width:400px;float:left">
-        <%=image_tag(@recipe.drinkpic.url, size: '400x300', class: 'gravatar', alt: 'No image') if @recipe.drinkpic? %>
+      <div class="col-sm-1"></div>
+   
+    <div class="col-md-3" >
+        <%=image_tag(@recipe.picture.url, class:'img-responsive', alt: 'No image') if @recipe.picture? %>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-md-3" >    
+        <%=image_tag(@recipe.drinkpic.url, class:'img-responsive', alt: 'No image') if @recipe.drinkpic? %>
+    </div>
+</div>
+    <%# id="likechef" %>
+<!--<div class="row">-->
+     
+<!--    <div class="col-sm-6 col-md-offset-1"> -->
+<!--    <div class="embed-responsive embed-responsive-16by9">-->
+<!--      <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</div>-->
+<br>
 
-     <section class="chef_info center" id="likechef">
+<!--<div class ="row">-->
+<!--    <div class="col-sm-1"></div>-->
+<!--    <div class="col-md-4 col-md-offset-7">-->
       <!--<h2>< %=link_to ("Crafted by: " + @recipe.chef.chefname), chef_path(@recipe.chef) %></h2>-->
-      <h3><%= mail_to @recipe.chef.email, "Question about this recipe? ask me! click here" %></h3>
-    </section>
-     <div class="pull-right" id="likechef">
+<!--      <h3>< %= mail_to @recipe.chef.email, "Question about this recipe? ask me! click here" %></h3>-->
+     
+<!--        < %= link_to like_recipe_path(@recipe, like: true), method: :post do %>-->
+<!--          <i class="glyphicon glyphicon-thumbs-up" ></i> &nbsp; < %= @recipe.thumbs_up_total %>-->
+<!--        < % end %> &nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--        < %= link_to like_recipe_path(@recipe, like: false), method: :post do %>-->
+<!--            <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; < %= @recipe.thumbs_down_total %>-->
+<!--        < % end %>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class ="row">-->
+<!--    <div class="col-md-12 col-md-offset-4 text-center">-->
+      <!--<h2>< %=link_to ("Crafted by: " + @recipe.chef.chefname), chef_path(@recipe.chef) %></h2>-->
+<!--      <h3>< %= mail_to @recipe.chef.email, "Question about this recipe? ask me! click here" %></h3>-->
+     
+<!--        < %= link_to like_recipe_path(@recipe, like: true), method: :post do %>-->
+<!--          <i class="glyphicon glyphicon-thumbs-up" ></i> &nbsp; < %= @recipe.thumbs_up_total %>-->
+<!--        < % end %> &nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--        < %= link_to like_recipe_path(@recipe, like: false), method: :post do %>-->
+<!--            <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; < %= @recipe.thumbs_down_total %>-->
+<!--        < % end %>-->
+<!--    </div>-->
+<!--</div>-->
+<center><div class ="row">
+        <h3><%= mail_to @recipe.chef.email, "Question about this recipe? ask me! click here" %></h3>
+     
         <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
-          <i class="glyphicon glyphicon-thumbs-up" style="font-size:20px;"></i> &nbsp; <%= @recipe.thumbs_up_total %>
+          <i class="glyphicon glyphicon-thumbs-up" ></i> &nbsp; <%= @recipe.thumbs_up_total %>
         <% end %> &nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
-            <i class="glyphicon glyphicon-thumbs-down" style="font-size:20px;"></i> &nbsp; <%= @recipe.thumbs_down_total %>
+            <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; <%= @recipe.thumbs_down_total %>
         <% end %>
-      </div>
-  </div>
-</div>
+</div></center>
 <center><h5><%= link_to "Return to Recipes Listing", recipes_path, class: 'btn btn-primary btn-small' %></h5></center>

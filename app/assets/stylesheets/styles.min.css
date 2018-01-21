@@ -5,12 +5,12 @@
 .navbar-brand .glyphicon {
     margin-right: 6px
 }
-.hero {
+/* .hero {
     background: url(cooking.png) center no-repeat;
     background-size: 600px 400px;
     
     border: none
-}
+} */
 @media (min-width: 992px) {
     .hero .get-it {
         text-align: right;

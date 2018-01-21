@@ -1,4 +1,4 @@
-$navbar-default-bg: #312312;
+$navbar-default-bg: #369;
 $light-orange: #ff8c00;
 $navbar-default-color:#337ab7;
 //$light-orange;
@@ -17,51 +17,21 @@ border-color: hsl(255, 68%, 63%);;
 border-color: hsl(255, 68%, 63%);;
 }
 
-html body:not(#landing_page)
-{
-
-}
-#main_header:not(#landing_page) {
-  width: 100%;
-  height: 16%;
-  background: url(header.png) center center no-repeat;
-  background-size: cover;
-}
-.jumbotron:not(#landing_page){
-  // border-radius: 0;
-  // background-color:transparent !important;
-  // // background-image: url('cutting-board-with-herbs-1200W.jpg');
-  // //background-image: url('welcome-screen-1200-x-1200.jpg');
-  // background-repeat: no-repeat;
-  // min-height: 1200px;
-  // min-width: 1200px;
-}
-.container:not(#landing_page) .jumbotron:not(#landing_page){
-  // border-radius: 0;
-  // margin-left:60px;
-  // margin-top:0;
-  // padding-top:0;
-}
-
-.headroom:not(#landing_page) {
+.headroom {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   transition: all .2s ease-in-out;
 }
-.headroom--unpinned:not(#landing_page) {
+.headroom--unpinned {
   top: -100px;
 }
-.headroom--pinned:not(#landing_page) {
+.headroom--pinned {
   top: 0;
 }
 
-.navbar-fixed-top:not(#landing_page){
-  
-}
-
-#logo:not(#landing_page) {
+#logo {
   margin-top: 10px;
   margin-bottom: 10px;
   background-position:relative;
@@ -77,46 +47,47 @@ html body:not(#landing_page)
   font-weight: bold;
 }
 
-#logo:hover:not(#landing_page) {
+#logo:hover {
   color: white;
   text-decoration: none;
 }
 
-body:not(#landing_page) {
-  padding-top: 80px;
+body {
+  padding-top: 5px;
 }
 
-.nav_item:not(#landing_page) {
+.nav_item {
   margin-left: 10px;
   float: left;
-  margin-top: 25px;
+  margin-top: 2px;
   padding-left: 1px;
 }
 
-.nav_ul_item:not(#landing_page) {
+.nav_ul_item {
   list-style-type: none;
   list-style: none;
   padding-left: 10px;
   float: left;
-  margin-top: 25px;
+  margin-top: 2px;
 }
 
-.center:not(#landing_page) {
+.center {
   text-align: left;
 }
 
-h1:not(#landing_page), h2:not(#landing_page), h3:not(#landing_page), h4:not(#landing_page) {
+h1, h2, h3, h4 {
   line-height: 1;
 }
 
-h1:not(#landing_page) {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+h1 {
+   font-size: 3em;
+  // letter-spacing: -2px;
+  // margin-bottom: 30px;
+  margin-top:60px;
   text-align: center;
 }
 
-h2:not(#landing_page) {
+h2 {
   font-size: 1.2em;
   margin-bottom: 30px;
   text-align: center;
@@ -124,45 +95,45 @@ h2:not(#landing_page) {
   color: #777;
 }
 
-.left:not(#landing_page) {
+.left {
   text-align: left;
   letter-spacing: .5px;
 }
 
-.footer:not(#landing_page) {
+.footer {
   margin-top: 25px;
   border-top: 1px solid #eaeaea;
   color: #777;
 }
 
-.chef_info:not(#landing_page) {
+.chef_info {
   margin:0;
   padding:0;  
   width:85%;
 }
 
-.chef_info:not(#landing_page) a:link:not(#landing_page){
+.chef_info a:link{
   line-height: 0;
   margin:0;
   padding:0;
   font-size: 18px;
   text-align: left;
 }
-.chef_info:not(#landing_page) h2:not(#landing_page) h4:not(#landing_page){
+.chef_info h2 h4{
   text-align: left;
   margin-left:0;
   padding-left:0;
   float:left;
 }
-.col-lg-7:not(#landing_page){
+.col-lg-7{
   min-height:300px;
 }
 
-.gravatar:not(#landing_page) {
+.gravatar {
   border-radius: 0;
 }
 
-.well:not(#landing_page) {
+.well {
   background-color: #efe5d5;
   // background-image: url('old_paper.jpg');
   // background-repeat:no-repeat;
@@ -170,7 +141,7 @@ h2:not(#landing_page) {
   border-radius:0;
 }
 
-input:not(#landing_page), textarea:not(#landing_page), select:not(#landing_page), .uneditable-input:not(#landing_page) {
+input, textarea, select, .uneditable-input {
   border: 1px solid #d2d2d2;
   // background-color: #efe5d5;
   // border-radius: 5px;
@@ -178,51 +149,52 @@ input:not(#landing_page), textarea:not(#landing_page), select:not(#landing_page)
   margin-bottom: 15px;
 }
 
-.input_checkbox:not(#landing_page) input:not(#landing_page) {
+.input_checkbox input {
   width: auto !important;
 }
 
-input:not(#landing_page) {
+input {
   height: auto !important;
 }
 
-span.picture:not(#landing_page) {
+span.picture {
   margin-top: 10px;
   input {
     border: 0;
   }
 }
 
-.show_recipe:not(#landing_page) {
+.show_recipe {
   margin: 10px 10px 10px 900px;
   
 }
-h2:not(#landing_page) a:link:not(#landing_page){
+h2 a:link{
   margin-bottom:0;
   padding-bottom:0;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1280px)
-              and (min-height: 800px) and (max-height: 800px){
+// @media screen and (min-width: 1280px)
+//               and (min-height: 800px)
+@media only screen and (min-width: 768px){
     /* insert styles here */
-  .container:not(#landing_page){
+  .container{
   width:100%;
   background-position: center;
   /*overflow: hidden;*/
   }
 
   .navbar{
-    min-height: 300px;
+    min-height: 30px;
   }
 
-  #main_header:not(#landing_page) {
+  #main_header {
   width: 100%;
-  height: 16%;
+  height: 8%;
   background: url(header.png) center center no-repeat;
   background-size: cover;
   }
   
-  #bg:not(#landing_page){
+  #bg{
   /*min-height:800px;*/
   height:100%;
   width:100%;
@@ -233,7 +205,7 @@ h2:not(#landing_page) a:link:not(#landing_page){
   text-align: center;
   }
   
-  #box:not(#landing_page){
+  #box{
   min-height:400px;
   display:block;
   border-radius: 35px;
@@ -242,21 +214,21 @@ h2:not(#landing_page) a:link:not(#landing_page){
 }
   
   
-  #showcase:not(#landing_page){
+  #showcase{
   min-height: 450px;
   background-image: url('cooking-new.png');
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
   }
-  .img:not(#landing_page){
+  .img{
     display:block;
     max-width:100%;
     margin-left: 350px;
     background-repeat: no-repeat;
     height:auto;
   }
-  .welcome-font:not(#landing_page){
+  .welcome-font{
   position: relative;
   font-size:90px;
   font-family: Garamond;
@@ -268,46 +240,46 @@ h2:not(#landing_page) a:link:not(#landing_page){
   1px 1px 0 blue;  
   }
   
-  #welcome-font h1:not(#landing_page){
+  #welcome-font h1{
     background-color:red;
     position:relative;
     height: 100px;
     top:50px;
   }
   
-  #welcome-font h2:not(#landing_page){
+  #welcome-font h2{
     background-color:blue;
     position:relative;
     height: 100px;
     top:50px;
   }
   
-  #welcome-font h3:not(#landing_page){
+  #welcome-font h3{
     background-color:yellow;
     position:relative;
     height: 100px;
     top:50px;
   }
   
-  #enter:not(#landing_page){
+  #enter{
     background-color:yellow;
     position:relative;
     height:100px;
     color:white;
   }
-  #enter a:link:not(#landing_page){
+  #enter a:link{
     /*color:#255255255;*/
     font-size:150px;
     text-decoration: none;
   }
-  .footer2:not(#landing_page) {
+  .footer2 {
   width:49%;
   margin-left: 350px;
   margin-top: 35px;
   border-top: 1px solid #eaeaea;
   color: #777;
   }
-  .footer3:not(#landing_page) {
+  .footer3 {
   width:75%;
   margin-left: 165px;
   margin-top: 35px;
@@ -315,11 +287,11 @@ h2:not(#landing_page) a:link:not(#landing_page){
   color: #777;
   }
   
-  #message:not(#landing_page){
+  #message{
   width:90%;
   }
 
-  #p1:not(#landing_page){
+  #p1{
   margin: 1% 4% 1% 15%;
   font-size:16px;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
@@ -327,15 +299,15 @@ h2:not(#landing_page) a:link:not(#landing_page){
   border-radius: 1.5%;
   }
 
-  #list:not(#landing_page){
+  #list{
   display: block;
   margin-left:42%;
   width:25%;
   }
-  #list h4:not(#landing_page){
+  #list h4{
   color: rgb(0,112,192);
   }
-  #packages:not(#landing_page){
+  #packages{
   text-align: left;
   list-style: none;
   font-size:15px;
@@ -343,8 +315,9 @@ h2:not(#landing_page) a:link:not(#landing_page){
   font-family: Garamond;
   }
   
-#timecreated:not(#landing_page){
+#timecreated{
   margin-top: 50px;
  }
   
 }
+

@@ -8,8 +8,13 @@
 <body id="b1">
 <header id="h1"></header>
 <div class="container">
-<section id="showcase">
-</section>
+<div class="row">
+<div class="col-md-12 col-md-offset-3">
+<%=image_tag('cooking-new.png', class: 'img-responsive', alt: 'No image')%>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
 <div id="message">
 <p id="p1">Be inspired to play with your food again! Tell stories of great meals and good times! Craft your shareable editable e-book, preserve heirloom recipes and create new favorite. 
 Be my guest! use my recipes and see how...<a href="#2min" data-toggle="collapse">(Read more, 1 min)</a>
@@ -33,22 +38,55 @@ Cooking is an action regardless if you consider it an art or a craft, and food i
 Bruno.
 </p>
 </div>
+</div>
+</div>
+</div>
+
 <hr>
-<div id="move-right">
-  <div id="btn">
-  <button class=".btn-success"><%= link_to 'Take a tour as Guest', register_path, {:style=>'color:rgb(0,112,192);', :id => "btn"} %></button>
+<div class="row">
+<div class="col-md-6 text-center col-md-offset-3">
+<%# <div id="move-right">
+  <div id="btn"> %>
+  <div class="row">
+  <div class="col-md-6 text-center col-md-offset-3">
+  <button class=".btn-success"><%= link_to 'Take a tour as Guest', register_path, {:style=>'color:rgb(0,112,192);position:center;', :id => "btn"} %></button>
   </div>
+  </div>
+
+  <%# </div> %>
+  <div class="row">
+  <div class="col-md-6 text-center col-md-offset-3">
     <p id="lgp">
       <center><p style="font-size:23px;">To use and receive new recipes and ask chef tips.</p></center>
       <center>*We never share your contact information.<br></center>
       <center>** We do no place banners, dropdowns, </center>
       <center>or strolling ads of any kind in your iTopRecipe app.<br></center>
     </p>
-    <hr>
-  <div id="btn">
-  <button class=".btn-success"><%= link_to 'Login', login_path, {:style=>'color:rgb(0,112,192);', :id => "btn"} %></button>
   </div>
+  </div>
+    <hr>
+  <%# <div id="btn"> %>
+  <div class="row">
+  <div class="col-md-6 text-center col-md-offset-3">
+  <button class=".btn-success"><%= link_to 'Login', login_path, {:style=>'color:rgb(0,112,192);position:center;', :id => "btn"} %></button>
+  </div>
+  </div>
+  <%# </div> %>
      <hr>
+
+<%# </div> %>
+</div>
+</div>
+
+<div class="footer3">
+  <p>Powered by iTopRecipes.com &copy;2017</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
 <!--<div id="list">-->
 <!--  <p id="btn">Start your masterpiece, pick one today!</p>-->
 <!--  <ul id="packages" style="font-size:23px;">-->
@@ -59,10 +97,3 @@ Bruno.
 <!--	<li> Amateurs</li>-->
 <!--  </ul>-->
 <!--</div>-->
-</div>
-<div class="footer3">
-  <p>Powered by iTopRecipes.com &copy;2017</p>
-</div>
-</div>
-</body>
-</html>

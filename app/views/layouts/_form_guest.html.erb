@@ -12,6 +12,9 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
       
+      <%= f.label :bio %>
+      <%= f.text_area :bio, placeholder: 'Please write few words about yourself.' %>
+      
       <%= f.submit(@chef.new_record? ? 'Register' : 'Edit profile', class: "btn btn-success") %>
     <% end %>
   </div>

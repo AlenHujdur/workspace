@@ -16,11 +16,7 @@
 <% @recipes.each do |recipe| %>
   <div class="row">
 
-   <div class="col-md-1" style="width:16%">
-
-  </div>
-
-  <div class="col-lg-7 well" >
+  <div class="col-lg-5 well col-lg-offset-2" >
     <h2 style="margin-bottom:0;padding-bottom:0;"><%= link_to recipe.name, recipe_path(recipe), {:style=>'font-family: Garamond;font-size:30px;text-align:left;'} %></h2>
     <p style="font-family: Garamond; font-size:20px;"><%= recipe.summary %></p>
     <p style="font-size:16px; font-family:Garamond;padding:0;margin:0;">Styles: <%= render recipe.styles %></p>
@@ -39,12 +35,9 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-4">
-    <%= image_tag(recipe.picture.url, size: '300x240', class: 'gravatar') if recipe.picture? %>
-    <section class="chef_info center">
-      <!--<h2 style="text-align:left; margin-bottom:5px;">< %=link_to ("Crafted by: " + recipe.chef.chefname), chef_path(recipe.chef) %></h2>-->
-      <!--<h4 style="text-align:left">< %= mail_to recipe.chef.email, "Question about this recipe? Click here" %></h4>-->
-    </section>
+  <div class="col-sm-1"></div>
+  <div class="col-md-3">
+    <%= image_tag(recipe.picture.url, class:'img-responsive') if recipe.picture? %>
   </div>
 
  </div>
@@ -52,6 +45,7 @@
 <% end %>
 
 <%= will_paginate @recipes %>
+
 
 
 

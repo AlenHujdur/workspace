@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #root 'pages#home'
-  root 'pages#welcome'
+  root 'pages#test'
   #root :to => 'pages#welcome'
   get '/home', to: 'pages#home'
   get '/index', to: 'pages#index'
+  get '/new', to: 'pages#new'
   #get '/welcome', to: 'pages#welcome'
   
   

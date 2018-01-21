@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202194251) do
+ActiveRecord::Schema.define(version: 20171231204442) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171202194251) do
     t.string   "password_digest"
     t.boolean  "admin",           default: false
     t.string   "picture"
+    t.string   "bio"
   end
 
   create_table "ingredients", force: :cascade do |t|

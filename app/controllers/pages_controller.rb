@@ -13,6 +13,12 @@ class PagesController < ApplicationController
     #render file: 'public/welcome'
     @pages = Page.all
   end
+  def test
+    @disable_nav = true
+    @disable_footer = true
+    #render file: 'public/welcome'
+    @pages = Page.all
+  end
   
   def new
     @page = Page.new

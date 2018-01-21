@@ -25,7 +25,10 @@
       <strong>Max picture size 5 megabytes</strong>
 
       <h3>Add summary / bio </h3>
-      <h3>Add welcome picture </h3>
+      <%= f.label :bio %>
+      <%= f.text_area :bio %>
+      <h3>Add / change welcome picture </h3>
+      <h3>Add / change index picture </h3>
 
       <%= f.submit(@chef.new_record? ? 'Register' : 'Save Changes', class: "btn btn-success") %>
     <% end %>

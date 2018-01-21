@@ -1,5 +1,6 @@
-<%= render 'shared/page_title', title: "All Recipes" %>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<br><br><br><br><br>
+<div class="title"><%= render 'shared/page_title', title: "All Recipes" %></div>
 <ul class="nav nav-tabs">
   <li class="active">
     <%= link_to "Recipes", recipes_path, {:style=>'font-size:20px'} %>
@@ -14,35 +15,39 @@
 <% @recipes.each do |recipe| %>
 
   <div class="row">
-   <div class="col-md-1" style="width:6%">
-
-  </div>
-
-  <div class="col-lg-6 well" >
-    <center><h2><%= link_to recipe.name, recipe_path(recipe), {:style=>'font-family: Garamond;font-size:30px;text-align:left'} %></h2></center>
-    <center><p style="font-family: Garamond; font-size:20px;" id="summaryp"><%= recipe.summary %></p></center>
+  <div class="col-sm-1"></div> 
+  <div class="col-lg-5 well">
+    <center><h2><%= link_to recipe.name, recipe_path(recipe) %></h2></center>
+    <center><p><%= recipe.summary %></p></center>
       
     <% if recipe.styles.any? %>
-      <p id="div1">Styles: <%= render recipe.styles %></p><br>
+      <p>Styles: <%= render recipe.styles %></p>
     <% end %>
     <% if recipe.ingredients.any? %>
-      <p id="div1">Ingredients: <%= render recipe.ingredients %></p><br>
+      <p>Ingredients: <%= render recipe.ingredients %></p>
     <% end %>
     <% if recipe.ingredients.any? %>
-      <p id="div1">Alergens: <%= render recipe.allergens %></p><br>
+      <p>Alergens: <%= render recipe.allergens %></p>
     <% end %>
     <section class="chef_info center">
       <h2 style="text-align:right"><%=link_to ("Crafted by: " + recipe.chef.chefname), chef_path(recipe.chef) %></h2>
       <!--<h4>< %= mail_to recipe.chef.email, "Question about this recipe? ask me! click here" %></h4>-->
     </section>
+  </div>
+  <div class="col-sm-1"></div> 
+  <div class="col-md-3">
+    <%=image_tag(recipe.picture.url, class:'img-responsive', alt: 'No image') if recipe.picture? %>
+  </div>
 
+  <div class="col-sm-1"></div>
+  <div class="col-md-3">
+    <%=image_tag(recipe.drinkpic.url, class:'img-responsive', alt: 'No image') if recipe.drinkpic? %>
+ 
   </div>
-  <div class="col-md-6">
-    <%=image_tag(recipe.picture.url, alt: 'No image', size: '300x240', class: 'gravatar') if recipe.picture? %>
-    <%=image_tag(recipe.drinkpic.url, alt: 'No image', size: '300x240', class: 'gravatar') if recipe.drinkpic? %>
-  </div>
-  <!-- '250x150'-->
-  </div>
+  <div class="col-sm-1"></div>  
+  <!-- '250x150'-->  
+</div>
 <% end %>
 
 <%= will_paginate %>
+
