@@ -18,6 +18,11 @@ class ChefsController < ApplicationController
     @changed = false
   end
 
+  def new_contributor
+    @chef = Chef.new
+    @changed = false
+  end
+
   def create
     @chef = Chef.new(chef_params)
     if @chef.save

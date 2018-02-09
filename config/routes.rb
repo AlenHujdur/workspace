@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  #devise_for :chefs, ActiveAdmin::Devise.config
+  #ActiveAdmin.routes(self)
   #root 'pages#home'
   root 'pages#test'
   #root :to => 'pages#welcome'
@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   resources :chefs, except: [:new, :destroy]
 
   get '/register', to: 'chefs#new'
-  get '/guestregistration', to: 'chefs#new_guest'
+  get '/newcontributor', to: 'chefs#new_contributor'
+  get '/newguest', to: 'chefs#new_guest'
   get '/delete', to: "chefs#destroy"
   
   get '/login', to: "logins#new"

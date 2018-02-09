@@ -8,13 +8,14 @@ gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Active admin
-gem 'activeadmin'
+#gem 'activeadmin'
 # Plus integrations with:
 gem 'devise'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
-gem 'mysql'
+#gem 'mysql'
+gem 'phpass-ruby', '~> 0.1.2'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
